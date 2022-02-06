@@ -1,20 +1,21 @@
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Edit</th>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Tel</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Tel</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of list">
-      <td>Edit</td>
+    <tr *ngFor="let item of list; let i=index;">
+      <td><button type="button" class="btn btn-link" (click)="changeItem(i)">Edit</button></td>
       <td>{{ item.id }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.address }}</td>
       <td>{{ item.tel }}</td>
+      <td><button type="button" class="btn btn-link" (click)="deletItem(item.id)"><i class="bi bi-trash3"></i></button></td>
     </tr>
   </tbody>
 </table>

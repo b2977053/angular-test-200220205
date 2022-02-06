@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-travel',
@@ -7,10 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TravelComponent implements OnInit {
   @Input() list: any;
+  @Output() ChangeItem = new EventEmitter<number>();
+  @Output() DelItem = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeItem(i: number){
+    this.ChangeItem.emit(i);
+  }
+  deletItem(i: string){
+    this.DelItem.emit(i);
   }
 
 }

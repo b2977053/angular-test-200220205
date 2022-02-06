@@ -10,7 +10,7 @@ import { TravelTaipei } from './travel-taipei';
 export class AppComponent {
   title = 'angular-test-200220205';
   travel1: TravelTaipei | undefined;
-  travel2= [
+  travel2: Array<any> = [
     {
         "id": 72,
         "name": "士林慈諴宮",
@@ -39,6 +39,18 @@ export class AppComponent {
         "address": "112 臺北市北投區關渡碼頭",
         "tel": "+886-2-27208889"
     }];
+  travelIndex = 0;
+  changeItem(i: number){
+    this.travelIndex = i;
+  }
+  delItem(i: string){
+    this.travel2 = this.travel2.filter((d)=>{
+      return d.id !== i
+    });
+  }
+  addItem(data: any){
+    this.travel2.push(data);
+  }
 
   constructor(private travelTaipeiService: TravelTaipeiService) {}
 

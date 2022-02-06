@@ -1,2 +1,22 @@
 
-<app-travel [list]="travel2"></app-travel>
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-travel [list]="travel2" (ChangeItem)="changeItem($event)" (DelItem)="delItem($event)"></app-travel>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <app-travel-edit [data]="travel2[travelIndex]"></app-travel-edit>
+    </div>
+    <div class="col-4">
+      <app-travel-add (AddItem)="addItem($event)"></app-travel-add>
+    </div>
+  </div>
+</div>
+
+
+
